@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flag page</title>
+</head>
+<body>
+<h2> Hello </h2>
+
+<form th:method="GET" th:action="@{/result}" th:object="${countriesCodes}">
+    <label for="codes">Input yours object name: </label>
+    <input type="text"  th:field="*{codes}" id="codes">
+    <br><br>
+    <input type="submit" value="GO!">
+</form>
+</body>
+</html>
