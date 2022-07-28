@@ -1,7 +1,6 @@
 package com.flag.flagapp;
 
 import com.flag.flagapp.dto.Country;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -12,16 +11,14 @@ import java.io.IOException;
 import java.net.URL;
 
 @Component
-@RequiredArgsConstructor
 public class FlagImageDownloader {
 
     @Value("${LINUX_PATH}")
-    private final String FIRST_PART_PATH_LINUX;
+    private String FIRST_PART_PATH_LINUX;
     @Value("${WINDOWS_PATH}")
-    private final String FIRST_PART_PATH_WINDOWS;
+    private String FIRST_PART_PATH_WINDOWS;
     @Value("${FORMAT_NAME}")
-    private final String FORMAT_NAME;
-
+    private String FORMAT_NAME;
 
     public void downloadFlags(final Country country)  {
         try {
