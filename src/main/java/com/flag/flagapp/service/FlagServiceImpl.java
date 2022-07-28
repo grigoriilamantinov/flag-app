@@ -11,8 +11,11 @@ import java.io.File;
 public class FlagServiceImpl implements FlagService {
     final RequestToRestcountries request;
 
-    @Value("${PATH}")
-    private String PATH;
+    @Value("${LINUX_PATH}")
+    private String LINUX_PATH;
+
+    @Value("${WINDOWS_PATH}")
+    private String WINDOWS_PATH;
 
     public FlagServiceImpl(RequestToRestcountries request) {
         this.request = request;
@@ -26,7 +29,12 @@ public class FlagServiceImpl implements FlagService {
     }
 
     private void createDir() {
-        File file = new File(PATH);
+        File file;
+        if (File.separator.equals("/")) {
+            file = new File(LINUX_PATH);
+        } else {
+            file = new File(WINDOWS_PATH);
+        }
         if (!file.exists()) {
             file.mkdirs();
         }
