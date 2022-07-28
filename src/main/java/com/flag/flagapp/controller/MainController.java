@@ -19,7 +19,7 @@ public class MainController {
 
     @GetMapping()
     public String getFlags() {
-        final String string = "ru,us,ca,ge,";
+        final String string = "ru,us,ca,ge,fin,";
         flagService.saveFlags(string);
         return "result";
     }
