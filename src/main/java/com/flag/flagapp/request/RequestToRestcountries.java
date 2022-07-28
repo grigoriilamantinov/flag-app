@@ -23,6 +23,8 @@ public class RequestToRestcountries {
         final String URL = FIRST_PART_URL + countiesCodes + LAST_PART_URL;
         RestTemplate restTemplate = new RestTemplate();
         final var responseEntity = restTemplate.getForEntity(URL, Country[].class);
-        return Arrays.stream(Objects.requireNonNull(responseEntity.getBody())).collect(Collectors.toList());
+        return Arrays
+                .stream(Objects.requireNonNull(responseEntity.getBody()))
+                .collect(Collectors.toList());
     }
 }
