@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface FlagService {
     List<Country> getCountries(String countriesCodes);
+
+    void saveFlags(String countriesCodes);
 }

@@ -19,8 +19,8 @@ public class MainController {
 
     @GetMapping()
     public String getFlags() {
-        String string = "ru,us";
-        var result = flagService.getCountries(string);
+        String string = "ru,us,ca,ge";
+        flagService.saveFlags(string);
         return "result";
     }
 }

@@ -1,9 +1,11 @@
 package com.flag.flagapp.service;
 
+import com.flag.flagapp.Downloader;
 import com.flag.flagapp.dto.Country;
 import com.flag.flagapp.request.RequestToRestcountries;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,11 +22,14 @@ public class FlagServiceImpl implements FlagService {
         return request.getCountryList(countriesCodes);
     }
 
+    @Override
     public void saveFlags(String countriesCodes) {
-        var result = request.getCountryList(countriesCodes).stream()
-            .map(country -> country.getFlags().getPng())
-            .collect(Collectors.toList());
-        result.forEach(flag -> String.valueOf(flag));
-
+        request.getCountryList(countriesCodes).parallelStream().forEach(country -> {
+            try {
+                Downloader.downloadFiles(country);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }
