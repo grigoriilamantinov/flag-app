@@ -16,9 +16,10 @@ public class FlagServiceImpl implements FlagService {
 
     @Value("${LINUX_PATH}")
     private String LINUX_PATH;
-
     @Value("${WINDOWS_PATH}")
     private String WINDOWS_PATH;
+    @Value("${LINUX_SEPARATOR}")
+    private String LINUX_SEPARATOR;
 
     @Override
     public void saveFlags(final String countriesCodes) {
@@ -28,7 +29,7 @@ public class FlagServiceImpl implements FlagService {
     }
 
     private void createDir() {
-        final File file = File.separator.equals("/")
+        final File file = File.separator.equals(LINUX_SEPARATOR)
             ? new File(LINUX_PATH)
             : new File(WINDOWS_PATH);
 
