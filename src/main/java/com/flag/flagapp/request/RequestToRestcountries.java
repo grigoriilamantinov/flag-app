@@ -2,6 +2,7 @@ package com.flag.flagapp.request;
 
 import com.flag.flagapp.dto.Country;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,6 +22,7 @@ public class RequestToRestcountries {
 
     RestTemplate restTemplate = new RestTemplate();
 
+    @Cacheable("main_request")
     public List<Country> getCountryList(final String countiesCodes) {
         final String URL = FIRST_PART_URL + countiesCodes + LAST_PART_URL;
         final var responseEntity = restTemplate.getForEntity(URL, Country[].class);
