@@ -5,10 +5,11 @@
     <title>Flag page</title>
 </head>
 <body>
-<h2> Hello </h2>
+<h2> Hello! </h2>
+<h3> Example for codes: fin,rus,uk,us,est </h3>
 
 <form th:method="GET" th:action="@{/result}" th:object="${countriesCodes}">
-    <label for="codes">Input yours object name: </label>
+    <label for="codes">Input yours codes (together and separated by a comma): </label>
     <input type="text"  th:field="*{codes}" id="codes">
     <br><br>
     <input type="submit" value="GO!">

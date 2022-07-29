@@ -20,14 +20,14 @@ public class UiController {
     }
 
     @RequestMapping()
-    public String getMainPage(final Model countriesCodesModel) {
+    public String showMainPage(final Model countriesCodesModel) {
         CodesFromUser codesFromUser = new CodesFromUser();
         countriesCodesModel.addAttribute("countriesCodes", codesFromUser);
-        return "main-page";
+        return "main";
     }
 
     @RequestMapping("/result")
-    public String getResult(@ModelAttribute("countriesCodes") final CodesFromUser codesFromUser) {
+    public String showResultPage(@ModelAttribute("countriesCodes") final CodesFromUser codesFromUser) {
         flagService.saveFlags(codesFromUser.getCodes());
         return "result";
     }

@@ -1,6 +1,6 @@
 package com.flag.flagapp.service;
 
-import com.flag.flagapp.FlagImageDownloader;
+import com.flag.flagapp.dowloader.FlagImageDownloader;
 import com.flag.flagapp.request.RequestToRestcountries;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

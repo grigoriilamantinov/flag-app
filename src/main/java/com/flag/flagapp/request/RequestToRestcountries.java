@@ -19,9 +19,10 @@ public class RequestToRestcountries {
     @Value("${LAST_PART}")
     private String LAST_PART_URL;
 
+    RestTemplate restTemplate = new RestTemplate();
+
     public List<Country> getCountryList(final String countiesCodes) {
         final String URL = FIRST_PART_URL + countiesCodes + LAST_PART_URL;
-        RestTemplate restTemplate = new RestTemplate();
         final var responseEntity = restTemplate.getForEntity(URL, Country[].class);
         return Arrays
                 .stream(Objects.requireNonNull(responseEntity.getBody()))

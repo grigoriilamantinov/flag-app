@@ -1,4 +1,4 @@
-package com.flag.flagapp;
+package com.flag.flagapp.dowloader;
 
 import com.flag.flagapp.dto.Country;
 import org.springframework.beans.factory.annotation.Value;
